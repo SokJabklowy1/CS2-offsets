@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-04-21 18:27:26.751014100 UTC
+// 2026-07-09 14:46:52.819563200 UTC
 
 pub const cs2_dumper = struct {
     pub const schemas = struct {
@@ -8,7 +8,7 @@ pub const cs2_dumper = struct {
         // Enum count: 2
         pub const schemasystem_dll = struct {
             // Alignment: 1
-            // Member count: 82
+            // Member count: 84
             pub const fieldtype_t = enum(u8) {
                 FIELD_VOID = 0x0,
                 FIELD_FLOAT32 = 0x1,
@@ -79,7 +79,7 @@ pub const cs2_dumper = struct {
                 FIELD_ATTACHMENT_HANDLE = 0x42,
                 FIELD_AMMO_INDEX = 0x43,
                 FIELD_CONDITION_ID = 0x44,
-                FIELD_AI_SCHEDULE_BITS = 0x45,
+                DEPRECATED_FIELD_AI_SCHEDULE_BITS = 0x45,
                 FIELD_MODIFIER_HANDLE = 0x46,
                 FIELD_ROTATION_VECTOR = 0x47,
                 FIELD_ROTATION_VECTOR_WORLDSPACE = 0x48,
@@ -91,7 +91,9 @@ pub const cs2_dumper = struct {
                 FIELD_WORLD_GROUP_ID = 0x4E,
                 FIELD_GLOBALSYMBOL = 0x4F,
                 FIELD_HNMGRAPHDEFINITION = 0x50,
-                FIELD_TYPECOUNT = 0x51
+                FIELD_NETWORK_QUANTIZED_VECTORWS = 0x51,
+                FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_VECTORWS = 0x52,
+                FIELD_TYPECOUNT = 0x53
             };
             // Alignment: 4
             // Member count: 3
@@ -102,33 +104,75 @@ pub const cs2_dumper = struct {
             };
             // Parent: None
             // Field count: 0
+            //
+            // Metadata:
+            // MResourceTypeForInfoType
             pub const InfoForResourceTypeCResourceManifestInternal = struct {
             };
             // Parent: None
-            // Field count: 0
+            // Field count: 23
             pub const CSchemaSystemInternalRegistration = struct {
+                pub const m_Vector2D: usize = 0x0; // Vector2D
+                pub const m_Vector: usize = 0x8; // Vector
+                pub const m_VectorWS: usize = 0x14; // VectorWS
+                pub const m_VectorAligned: usize = 0x20; // VectorAligned
+                pub const m_Quaternion: usize = 0x30; // Quaternion
+                pub const m_QAngle: usize = 0x40; // QAngle
+                pub const m_RotationVector: usize = 0x4C; // RotationVector
+                pub const m_RadianEuler: usize = 0x58; // RadianEuler
+                pub const m_DegreeEuler: usize = 0x64; // DegreeEuler
+                pub const m_QuaternionStorage: usize = 0x70; // QuaternionStorage
+                pub const m_matrix3x4_t: usize = 0x80; // matrix3x4_t
+                pub const m_matrix3x4a_t: usize = 0xB0; // matrix3x4a_t
+                pub const m_Color: usize = 0xE0; // Color
+                pub const m_Vector4D: usize = 0xE4; // Vector4D
+                pub const m_CTransform: usize = 0x100; // CTransform
+                pub const m_pKeyValues: usize = 0x120; // KeyValues*
+                pub const m_CUtlBinaryBlock: usize = 0x128; // CUtlBinaryBlock
+                pub const m_CUtlString: usize = 0x138; // CUtlString
+                pub const m_CUtlSymbol: usize = 0x140; // CUtlSymbol
+                pub const m_stringToken: usize = 0x144; // CUtlStringToken
+                pub const m_stringTokenWithStorage: usize = 0x148; // CUtlStringTokenWithStorage
+                pub const m_ResourceTypes: usize = 0x160; // CResourceArray<CResourcePointer<CResourceString>>
+                pub const m_KV3: usize = 0x168; // KeyValues3
             };
-            // Parent: resourcefile
-            // Field count: 0
+            // Parent: None
+            // Field count: 1
+            //
+            // Metadata:
+            // MGetKV3ClassDefaults
             pub const CExampleSchemaVData_PolymorphicDerivedA = struct {
+                pub const m_nDerivedA: usize = 0x10; // int32
             };
             // Parent: None
             // Field count: 1
+            //
+            // Metadata:
+            // MGetKV3ClassDefaults
             pub const CExampleSchemaVData_PolymorphicBase = struct {
-                pub const @"": usize = 0x0; // 
-            };
-            // Parent: resourcefile
-            // Field count: 0
-            pub const CExampleSchemaVData_PolymorphicDerivedB = struct {
-            };
-            // Parent: None
-            // Field count: 0
-            pub const ResourceId_t = struct {
+                pub const m_nBase: usize = 0x8; // int32
             };
             // Parent: None
             // Field count: 1
+            //
+            // Metadata:
+            // MGetKV3ClassDefaults
+            pub const CExampleSchemaVData_PolymorphicDerivedB = struct {
+                pub const m_nDerivedB: usize = 0x10; // int32
+            };
+            // Parent: None
+            // Field count: 1
+            pub const ResourceId_t = struct {
+                pub const m_Value: usize = 0x0; // uint64
+            };
+            // Parent: None
+            // Field count: 2
+            //
+            // Metadata:
+            // MGetKV3ClassDefaults
             pub const CExampleSchemaVData_Monomorphic = struct {
-                pub const @"": usize = 0x0; // 
+                pub const m_nExample1: usize = 0x0; // int32
+                pub const m_nExample2: usize = 0x4; // int32
             };
         };
     };

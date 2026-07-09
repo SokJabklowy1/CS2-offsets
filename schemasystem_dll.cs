@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2026-04-21 18:27:26.751014100 UTC
+// 2026-07-09 14:46:52.819563200 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: schemasystem.dll
@@ -7,7 +7,7 @@ namespace CS2Dumper.Schemas {
     // Enum count: 2
     public static class SchemasystemDll {
         // Alignment: 1
-        // Member count: 82
+        // Member count: 84
         public enum fieldtype_t : byte {
             FIELD_VOID = 0x0,
             FIELD_FLOAT32 = 0x1,
@@ -78,7 +78,7 @@ namespace CS2Dumper.Schemas {
             FIELD_ATTACHMENT_HANDLE = 0x42,
             FIELD_AMMO_INDEX = 0x43,
             FIELD_CONDITION_ID = 0x44,
-            FIELD_AI_SCHEDULE_BITS = 0x45,
+            DEPRECATED_FIELD_AI_SCHEDULE_BITS = 0x45,
             FIELD_MODIFIER_HANDLE = 0x46,
             FIELD_ROTATION_VECTOR = 0x47,
             FIELD_ROTATION_VECTOR_WORLDSPACE = 0x48,
@@ -90,7 +90,9 @@ namespace CS2Dumper.Schemas {
             FIELD_WORLD_GROUP_ID = 0x4E,
             FIELD_GLOBALSYMBOL = 0x4F,
             FIELD_HNMGRAPHDEFINITION = 0x50,
-            FIELD_TYPECOUNT = 0x51
+            FIELD_NETWORK_QUANTIZED_VECTORWS = 0x51,
+            FIELD_NETWORK_ORIGIN_CELL_QUANTIZED_VECTORWS = 0x52,
+            FIELD_TYPECOUNT = 0x53
         }
         // Alignment: 4
         // Member count: 3
@@ -101,33 +103,75 @@ namespace CS2Dumper.Schemas {
         }
         // Parent: None
         // Field count: 0
+        //
+        // Metadata:
+        // MResourceTypeForInfoType
         public static class InfoForResourceTypeCResourceManifestInternal {
         }
         // Parent: None
-        // Field count: 0
+        // Field count: 23
         public static class CSchemaSystemInternalRegistration {
+            public const nint m_Vector2D = 0x0; // Vector2D
+            public const nint m_Vector = 0x8; // Vector
+            public const nint m_VectorWS = 0x14; // VectorWS
+            public const nint m_VectorAligned = 0x20; // VectorAligned
+            public const nint m_Quaternion = 0x30; // Quaternion
+            public const nint m_QAngle = 0x40; // QAngle
+            public const nint m_RotationVector = 0x4C; // RotationVector
+            public const nint m_RadianEuler = 0x58; // RadianEuler
+            public const nint m_DegreeEuler = 0x64; // DegreeEuler
+            public const nint m_QuaternionStorage = 0x70; // QuaternionStorage
+            public const nint m_matrix3x4_t = 0x80; // matrix3x4_t
+            public const nint m_matrix3x4a_t = 0xB0; // matrix3x4a_t
+            public const nint m_Color = 0xE0; // Color
+            public const nint m_Vector4D = 0xE4; // Vector4D
+            public const nint m_CTransform = 0x100; // CTransform
+            public const nint m_pKeyValues = 0x120; // KeyValues*
+            public const nint m_CUtlBinaryBlock = 0x128; // CUtlBinaryBlock
+            public const nint m_CUtlString = 0x138; // CUtlString
+            public const nint m_CUtlSymbol = 0x140; // CUtlSymbol
+            public const nint m_stringToken = 0x144; // CUtlStringToken
+            public const nint m_stringTokenWithStorage = 0x148; // CUtlStringTokenWithStorage
+            public const nint m_ResourceTypes = 0x160; // CResourceArray<CResourcePointer<CResourceString>>
+            public const nint m_KV3 = 0x168; // KeyValues3
         }
-        // Parent: resourcefile
-        // Field count: 0
+        // Parent: None
+        // Field count: 1
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
         public static class CExampleSchemaVData_PolymorphicDerivedA {
+            public const nint m_nDerivedA = 0x10; // int32
         }
         // Parent: None
         // Field count: 1
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
         public static class CExampleSchemaVData_PolymorphicBase {
-            public const nint  = 0x0; // 
-        }
-        // Parent: resourcefile
-        // Field count: 0
-        public static class CExampleSchemaVData_PolymorphicDerivedB {
-        }
-        // Parent: None
-        // Field count: 0
-        public static class ResourceId_t {
+            public const nint m_nBase = 0x8; // int32
         }
         // Parent: None
         // Field count: 1
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
+        public static class CExampleSchemaVData_PolymorphicDerivedB {
+            public const nint m_nDerivedB = 0x10; // int32
+        }
+        // Parent: None
+        // Field count: 1
+        public static class ResourceId_t {
+            public const nint m_Value = 0x0; // uint64
+        }
+        // Parent: None
+        // Field count: 2
+        //
+        // Metadata:
+        // MGetKV3ClassDefaults
         public static class CExampleSchemaVData_Monomorphic {
-            public const nint  = 0x0; // 
+            public const nint m_nExample1 = 0x0; // int32
+            public const nint m_nExample2 = 0x4; // int32
         }
     }
 }
